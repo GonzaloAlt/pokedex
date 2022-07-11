@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./dist/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <title>Pokedex</title>
+</head>
+<body class="px-72 my-auto"  style="background-image: url('src/assets/imgs/charizardAsh.png')">
+    
+<div class="flex flex-row">
+    <div class="w-[50%] h-[100px] bg-[#E1D999]  border border-[#5D697A] border-8 border-b-[0px]  z-10 flex flex-row px-[3%] justify-between items-center " >
+        <h2 class="text-white  text-7xl" style="text-shadow: 2px 4px #6e6c61">POKEMON INFO</h2>
+        <!-- <div class="w-[6%] h-[50%] bg-white border rounded-t-[40px] rounded-b-[40px] border-none  "></div> -->
+    </div>
+
+</div>
+<div class="w-full border border-[#5D697A] border-8 flex flex-col bg-[#FAEBD1]" style="background-image: url('src/assets/imgs/orange-pattern.png')">
+    <div class="flex flex-row">
+        <div class="w-[50%] bg-[#F8E9D3] h-[555px]">
+            <div class="w-[100%] bg-[#C7A8EA] h-[547px] border-r-8 border-b-8 border-[#5D697A] flex flex-col justify-center content-center items-center">
+                <div class="h-[80px] flex flex-row justify-between content-center items-center w-full p-4">
+                    <div class="text-white  text-7xl" style="text-shadow: 2px 4px #6e6c61" id="pokemon-id"></div>
+                    <div class="text-white  text-7xl uppercase" style="text-shadow: 2px 4px #6e6c61" id="pokemon-name"></div>
+                    <div class="text-white  text-7xl" style="text-shadow: 2px 4px #6e6c61" id="pokemon-weight"></div>
+                </div>
+                <div class="w-[96%] h-[450px] bg-white p-4 mb-4 border border-[#B694D2] border-4" style="background-image: url('src/assets/imgs/patron-gris.png')">
+                    <div class="w-full h-[320px]  flex flex-row px-8 justify-center content-center items-center" > <img src="" alt="" class="h-full"  id="pokemon-img"></div>
+                    <div class="w-full h-[100px] flex flex-row-reverse px-8"> <img src="src/assets/imgs/pokeball.png" alt="" class="h-full" id="pokeball" /></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="w-[50%]  h-[600px] border border-t-[#F8E9D3] border-b-[0px] border-l-[0px] border-t-8">
+            <div class="flex flex-row justify-end content-center items-center p-2 relative">
+                <div class="w-[180px] h-[30px] bg-[#778290] border rounded-[20px] border-none text-white text-7xl text-center flex flex-col justify-center absolute left-0 ml-2" style="text-shadow: 2px 4px #778290" >No</div>
+                <div class="w-[75%] h-[85px] bg-[#F9F1E8] border rounded-[10px] border-none text-black text-7xl flex flex-row justify-start px-8 content-center items-center">025</div>
+            </div>
+            <div class="flex flex-row justify-end content-center items-center p-2 relative">
+                <div class="w-[180px] h-[30px] bg-[#778290] border rounded-[20px] border-none text-white text-7xl text-center flex flex-col justify-center absolute left-0 ml-2" style="text-shadow: 2px 4px #778290">NAME</div>
+                <div class="w-[75%] h-[85px] bg-[#F9F1E8] border rounded-[10px] border-none text-black text-7xl flex flex-row justify-start px-8 content-center items-center">PIKACHU</div>
+            </div>
+            <div class="flex flex-row justify-end content-center items-center p-2 relative">
+                <div class="w-[180px] h-[30px] bg-[#778290] border rounded-[20px] border-none text-white text-7xl text-center flex flex-col justify-center absolute left-0 ml-2" style="text-shadow: 2px 4px #778290">TYPE</div>
+                <div class="w-[75%] h-[85px] bg-[#F9F1E8] border rounded-[10px] border-none flex flex-row justify-start px-8 content-center items-center"> <h3 class="text-white text-7xl bg-[#F6B111] w-[200px] px-2 text-center border border-rounded">ELECTR</h3></div>
+            </div> 
+             <div class="flex flex-row justify-end content-center items-center p-2 relative">
+                <div class="w-[180px] h-[30px] bg-[#778290] border rounded-[20px] border-none text-white text-7xl text-center flex flex-col justify-center absolute left-0 ml-2" style="text-shadow: 2px 4px #778290">OT</div>
+                <div class="w-[75%] h-[85px] bg-[#F9F1E8] border rounded-[10px] border-none text-black text-7xl flex flex-row justify-start px-8 content-center items-center">UNDO</div>
+            </div>
+            <div class="flex flex-row justify-end content-center items-center p-2 relative">
+                <div class="w-[180px] h-[30px] bg-[#778290] border rounded-[20px] border-none text-white text-7xl text-center flex flex-col justify-center absolute left-0 ml-2" style="text-shadow: 2px 4px #778290">IDNo</div>
+                <div class="w-[75%] h-[85px] bg-[#F9F1E8] border rounded-[10px] border-none text-black text-7xl flex flex-row justify-start px-8 content-center items-center">15027</div>
+            </div>
+            <div class="flex flex-row justify-end content-center items-center p-2 relative">
+                <div class="w-[180px] h-[30px] bg-[#778290] border rounded-[20px] border-none text-white text-7xl text-center flex flex-col justify-center absolute left-0 ml-2" style="text-shadow: 2px 4px #778290">ITEM</div>
+                <div class="w-[75%] h-[85px] bg-[#F9F1E8] border rounded-[10px] border-none text-black text-7xl flex flex-row justify-start px-8 content-center items-center"></div>
+            </div> 
+        </div>-->
+    </div>
+    <!-- <div class="w-full h-[300px] flex flex-col justify-center items-center content-center px-4 pt-6 pb-2">
+        <div class="w-full h-[280px] bg-[#F9F1E8] border rounded-[10px] border-none"></div>
+    </div> -->
+</div>
+<div class="w-[50%] h-[100px] bg-[#5D697A]  border border-[#5D697A] border-8  z-10 flex flex-row  justify-between items-center content-center " >
+    <div id="pokemon-list-btns"></div>
+    <div>
+        <button id="previous-btn" class="page-btn">Página anterior</button>
+        <button id="next-btn" class="page-btn">Página siguiente</button>
+    </div>
+</div>
+
+
+<script type="module" src="./src/index.js"></script>
+</body>
+</html>
