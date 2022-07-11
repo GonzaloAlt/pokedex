@@ -10,10 +10,10 @@ beforeEach(() => {
   global.fetch = jest.fn();
 });
 
-test('Iniciate pokedex', () => {
+test('Initiate pokedex', () => {
   document.body.innerHTML = fixture;
 
-  global.fetch.mockImplementationOnce(() => new Promise((resolve) => {
+  global.fetch.mockImplementation(() => new Promise((resolve) => {
     const jsonPromise = new Promise((r) => {
       r(pokemonList);
     });
@@ -22,7 +22,4 @@ test('Iniciate pokedex', () => {
 
   initPokedex();
   expect(global.fetch).toHaveBeenCalledTimes(1);
-  // expect(document.querySelector('#previous-btn').textContent)
-  // .toContain('Página anterior');
-  // expect(document.querySelectorAll('.pokemon-btn')).toHaveLength(20);
 });

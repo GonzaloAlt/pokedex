@@ -8,8 +8,7 @@ export const getPokemon = async (name) => {
   if (name) {
     try {
       const pokemon = await getPokemonAPI(name);
-      const pokemonData = pokemonMap(pokemon);
-      return pokemonData;
+      return pokemonMap(pokemon);
     } catch (e) {
       Error(e);
     }

@@ -17,7 +17,7 @@ export const getPokemonAPI = async (pokemonName) => {
       const pokemon = await fetch(`${URL_BASE}${pokemonName}`);
       return await pokemon.json();
     } catch (e) {
-      Error(e);
+      Error('No se pudo retornar el pokemon desde API');
     }
   } else {
     throw new Error('Ingrese un pokemon');

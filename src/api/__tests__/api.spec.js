@@ -11,7 +11,7 @@ test('load 1 pokemon', () => {
     // eslint-disable-next-line no-new
     new Promise((resolve) => {
       const jsonPromise = new Promise((r) => {
-        r();
+        r({});
       });
       resolve({ json: () => jsonPromise });
     });
@@ -24,6 +24,11 @@ test('load 1 pokemon', () => {
     .toHaveBeenCalledTimes(1);
 });
 
+// test('try load pokemon and fail API throw error', () => {
+//   expect(getPokemonAPI('bulbasaur')).rejects.toEqual('No se pudo retornar el pokemon desde API');
+//   expect(global.fetch).toHaveBeenCalledTimes(0);
+// });
+
 test('try load pokemon without argument throw error', () => {
   expect(getPokemonAPI()).rejects.toEqual(new Error('Ingrese un pokemon'));
   expect(global.fetch).toHaveBeenCalledTimes(0);
@@ -34,7 +39,7 @@ test('get pokemon list with default params', () => {
     // eslint-disable-next-line no-new
     new Promise((resolve) => {
       const jsonPromise = new Promise((r) => {
-        r({});
+        r([]);
       });
       resolve({ json: () => jsonPromise });
     });
@@ -52,7 +57,7 @@ test('get pokemon list with user params', () => {
     // eslint-disable-next-line no-new
     new Promise((resolve) => {
       const jsonPromise = new Promise((r) => {
-        r({});
+        r([]);
       });
       resolve({ json: () => jsonPromise });
     });
