@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import { getPokemonData, getPokemonListData } from './services/pokemonService.js';
+import { getPokemon, getPokemonList } from './services/pokemonService.js';
 import { renderPokemon, renderPokemonListBtn } from './ui/ui.js';
 import setOffsetPagination from './utilities/offsetPagination.js';
 
@@ -22,17 +22,17 @@ const showPokemon = (getDataCallBack) => {
 
 const showPokemonList = async (offset) => {
   try {
-    const pokemonList = await getPokemonListData(offset);
+    const pokemonList = await getPokemonList(offset);
     renderPokemonListBtn(pokemonList, offset);
   } catch (error) {
     Error(error);
   }
 };
 
-const iniciatePokedex = () => {
+const initPokedex = () => {
   showPokemonList(0);
-  showPokemon(getPokemonData);
+  showPokemon(getPokemon);
   setOffsetPagination(showPokemonList);
 };
 
-export default iniciatePokedex;
+export default initPokedex;

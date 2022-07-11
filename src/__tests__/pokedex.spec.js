@@ -3,7 +3,7 @@
  */
 
 import fixture from '../__mocks__/pokedex.fixture';
-import iniciatePokedex from '../pokedex';
+import initPokedex from '../pokedex';
 import pokemonList from '../../cypress/fixtures/pokemonList-page-1.json';
 
 beforeEach(() => {
@@ -20,7 +20,7 @@ test('Iniciate pokedex', () => {
     resolve({ json: () => jsonPromise });
   }));
 
-  iniciatePokedex();
+  initPokedex();
   expect(global.fetch).toHaveBeenCalledTimes(1);
   // expect(document.querySelector('#previous-btn').textContent)
   // .toContain('Página anterior');

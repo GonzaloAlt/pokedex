@@ -1,13 +1,13 @@
 /* eslint-disable consistent-return */
 /* eslint-disable import/extensions */
 import { pokemonMap } from '../mappers/pokemonMapper.js';
-import { getPokemon, getPokemonList } from '../api/api.js';
+import { getPokemonAPI, getPokemonListAPI } from '../api/api.js';
 
 // eslint-disable-next-line import/prefer-default-export
-export const getPokemonData = async (name) => {
+export const getPokemon = async (name) => {
   if (name) {
     try {
-      const pokemon = await getPokemon(name);
+      const pokemon = await getPokemonAPI(name);
       const pokemonData = pokemonMap(pokemon);
       return pokemonData;
     } catch (e) {
@@ -18,9 +18,9 @@ export const getPokemonData = async (name) => {
   }
 };
 
-export const getPokemonListData = async (offset) => {
+export const getPokemonList = async (offset) => {
   try {
-    const pokemonList = await getPokemonList(offset);
+    const pokemonList = await getPokemonListAPI(offset);
     const pokemons = pokemonList;
     return pokemons;
   } catch (e) {

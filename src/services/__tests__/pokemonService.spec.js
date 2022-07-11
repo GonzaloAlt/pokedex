@@ -1,4 +1,4 @@
-import { getPokemonData, getPokemonListData } from '../pokemonService';
+import { getPokemon, getPokemonList } from '../pokemonService';
 
 beforeEach(() => {
   global.fetch = jest.fn();
@@ -17,6 +17,6 @@ test('get bulbasaur data', () => {
 });
 
 test('try to get data without passing a name', () => {
-  expect(getPokemonData()).rejects.toEqual(new Error('Ingrese el nombre del pokemon'));
+  expect(getPokemon()).rejects.toEqual(new Error('Ingrese el nombre del pokemon'));
   expect(global.fetch).toHaveBeenCalledTimes(0);
 });

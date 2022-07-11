@@ -1,4 +1,4 @@
-import { getPokemonList, getPokemon, URL_BASE } from '../api';
+import { getPokemonListAPI, getPokemonAPI, URL_BASE } from '../api';
 
 /// <reference types="@types/jest" /> /
 
@@ -17,7 +17,7 @@ test('load 1 pokemon', () => {
     });
   });
 
-  getPokemon('bulbasaur');
+  getPokemonAPI('bulbasaur');
 
   expect(global.fetch).toHaveBeenCalledWith(`${URL_BASE}bulbasaur`);
   expect(global.fetch)
@@ -25,7 +25,7 @@ test('load 1 pokemon', () => {
 });
 
 test('try load pokemon without argument throw error', () => {
-  expect(getPokemon()).rejects.toEqual(new Error('Ingrese un pokemon'));
+  expect(getPokemonAPI()).rejects.toEqual(new Error('Ingrese un pokemon'));
   expect(global.fetch).toHaveBeenCalledTimes(0);
 });
 
@@ -40,7 +40,7 @@ test('get pokemon list with default params', () => {
     });
   });
 
-  getPokemonList();
+  getPokemonListAPI();
 
   expect(global.fetch)
     .toHaveBeenCalledTimes(1);
@@ -58,7 +58,7 @@ test('get pokemon list with user params', () => {
     });
   });
 
-  getPokemonList(1);
+  getPokemonListAPI(1);
 
   expect(global.fetch)
     .toHaveBeenCalledTimes(1);
