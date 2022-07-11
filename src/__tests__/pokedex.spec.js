@@ -22,7 +22,7 @@ test('Iniciate pokedex', () => {
 
   iniciatePokedex();
   expect(global.fetch).toHaveBeenCalledTimes(1);
-  expect(document.querySelector('#bulbasaur').textContent)
-  .toContain('1');
+  // expect(document.querySelector('#previous-btn').textContent)
+  // .toContain('Página anterior');
   // expect(document.querySelectorAll('.pokemon-btn')).toHaveLength(20);
 });
