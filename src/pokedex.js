@@ -25,7 +25,7 @@ const showPokemonList = async (offset) => {
     const pokemonList = await getPokemonList(offset);
     renderPokemonListBtn(pokemonList, offset);
   } catch (error) {
-    Error(error);
+    console.error(error);
   }
 };
 

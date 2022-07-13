@@ -2,27 +2,33 @@
 /* eslint-disable import/extensions */
 import { pokemonMap } from '../mappers/pokemonMapper.js';
 import { getPokemonAPI, getPokemonListAPI } from '../api/api.js';
+import {
+  getPokemonListLocalStg, getPokemonLocalStg, savePokemonListLocalStg, savePokemonLocalStg,
+} from '../storage/pokemonStorage.js';
 
-// eslint-disable-next-line import/prefer-default-export
 export const getPokemon = async (name) => {
-  if (name) {
-    try {
-      const pokemon = await getPokemonAPI(name);
-      return pokemonMap(pokemon);
-    } catch (e) {
-      Error(e);
-    }
-  } else {
+  if (!name) {
     throw new Error('Ingrese el nombre del pokemon');
+  } else {
+    let pokemon;
+    try {
+      pokemon = getPokemonLocalStg(name);
+    } catch (e) {
+      pokemon = await getPokemonAPI(name);
+      savePokemonLocalStg(name, pokemon);
+    }
+    pokemon = pokemonMap(pokemon);
+    return pokemon;
   }
 };
 
 export const getPokemonList = async (offset) => {
+  let pokemons;
   try {
-    const pokemonList = await getPokemonListAPI(offset);
-    const pokemons = pokemonList;
-    return pokemons;
+    return getPokemonListLocalStg(offset);
   } catch (e) {
-    Error(e);
+    pokemons = await getPokemonListAPI(offset);
+    savePokemonListLocalStg(offset, pokemons);
+    return pokemons;
   }
 };
