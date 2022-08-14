@@ -14,8 +14,8 @@ const showPokemon = (getDataCallBack) => {
         const pokemon = await getDataCallBack(pokemonName);
         renderPokemon(pokemon);
       }
-    } catch (error) {
-      Error(error);
+    } catch (err) {
+      throw new Error(err);
     }
   };
 };
@@ -24,8 +24,8 @@ const showPokemonList = async (offset) => {
   try {
     const pokemonList = await getPokemonList(offset);
     renderPokemonListBtn(pokemonList, offset);
-  } catch (error) {
-    console.error(error);
+  } catch (err) {
+    throw new Error(err);
   }
 };
 

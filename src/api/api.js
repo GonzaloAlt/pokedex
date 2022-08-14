@@ -8,18 +8,17 @@ export const getPokemonListAPI = async (offsetValue = 0) => {
     const { results: pokemons } = pokemonList;
     return pokemons;
   } catch (e) {
-    Error(e);
+    throw new Error('No se pudieron retornar los pokemons desde API');
   }
 };
 export const getPokemonAPI = async (pokemonName) => {
-  if (pokemonName) {
-    try {
+  try {
+    if (pokemonName) {
       const pokemon = await fetch(`${URL_BASE}${pokemonName}`);
       return await pokemon.json();
-    } catch (e) {
-      Error('No se pudo retornar el pokemon desde API');
     }
-  } else {
-    throw new Error('Ingrese un pokemon');
+  } catch (e) {
+    if (!pokemonName) throw new Error('Ingrese un pokemon');
+    throw new Error('No se pudo retornar el pokemon desde API');
   }
 };

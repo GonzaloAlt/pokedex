@@ -1,13 +1,21 @@
 export const getPokemonListLocalStg = (offsetValue) => {
-  const pokemonList = JSON.parse(localStorage.getItem(offsetValue));
-  if (pokemonList === null) {
+  let pokemonList;
+  try {
+    pokemonList = JSON.parse(localStorage.getItem(offsetValue));
+  } catch (err) {
     throw new Error(`Lista con offset ${offsetValue} no encontrada en LocalStorage`);
   }
+  if (pokemonList === null) { throw new Error(`Lista con offset ${offsetValue} no encontrada en LocalStorage`); }
   return pokemonList;
 };
 
 export const getPokemonLocalStg = (pokemonName) => {
-  const pokemon = JSON.parse(localStorage.getItem(pokemonName));
+  let pokemon;
+  try {
+    pokemon = JSON.parse(localStorage.getItem(pokemonName));
+  } catch (err) {
+    throw new Error(`Pokemon ${pokemonName} no encontrado en LocalStorage`);
+  }
   if (pokemon === null) {
     throw new Error(`Pokemon ${pokemonName} no encontrado en LocalStorage`);
   }

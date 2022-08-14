@@ -23,11 +23,10 @@ export const getPokemon = async (name) => {
 };
 
 export const getPokemonList = async (offset) => {
-  let pokemons;
   try {
     return getPokemonListLocalStg(offset);
   } catch (e) {
-    pokemons = await getPokemonListAPI(offset);
+    const pokemons = await getPokemonListAPI(offset);
     savePokemonListLocalStg(offset, pokemons);
     return pokemons;
   }
